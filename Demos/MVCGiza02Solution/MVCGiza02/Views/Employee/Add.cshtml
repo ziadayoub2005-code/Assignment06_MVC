@@ -1,0 +1,53 @@
+﻿@model Employee
+
+<h2>Add Emp</h2>
+
+
+@* <div asp-validation-summary="All" class="text-danger"></div> *@
+
+<form method="post" asp-action="SaveAdd" asp-controller="Employee">
+	<div>
+		<label asp-for="Name"></label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Salary"></label>
+		<input asp-for="Salary" class="form-control" />
+		<span asp-validation-for="Salary" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Title"></label>
+		<input asp-for="Title" class="form-control" />
+		<span asp-validation-for="Title" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Address"></label>
+		<input asp-for="Address" class="form-control" />
+		<span asp-validation-for="Address" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="DeptId"></label>
+		<select asp-for="DeptId" asp-items="ViewBag.Deptlist" class="form-control">
+			<option value="0">-- Select department --</option>
+			@* @foreach (var item in ViewBag.Deptlist)
+			{
+				<option value="@item.Id">@item.Name</option>
+			} *@
+		</select>
+		<span asp-validation-for="DeptId" class="text-danger"></span>
+	</div>
+	<input type="submit" value="Add" class="btn btn-primary mt-3" />
+</form>
+
+<a asp-action="Index">Back</a>
+
+@* <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script> *@
+
+@section scripts{
+	@* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

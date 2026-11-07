@@ -1,0 +1,55 @@
+@model Course
+
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<h2>Edit Course</h2>
+
+<div class="col-md-6">
+    <form method="post" asp-action="SaveEdit" asp-controller="Course" asp-route-id="@Model.Id">
+        <input type="hidden" asp-for="Id" />
+
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Degree" class="form-label"></label>
+            <input asp-for="Degree" class="form-control" type="number" />
+            <span asp-validation-for="Degree" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="MinDegree" class="form-label"></label>
+            <input asp-for="MinDegree" class="form-control" type="number" />
+            <span asp-validation-for="MinDegree" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Hours" class="form-label"></label>
+            <input asp-for="Hours" class="form-control" type="number" />
+            <span asp-validation-for="Hours" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DeptId" class="form-label"></label>
+            <select asp-for="DeptId" asp-items="ViewBag.DeptList" class="form-control">
+                <option value="">-- Select Department --</option>
+            </select>
+            <span asp-validation-for="DeptId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>
+
+@* Client-Side Validation scripts *@
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

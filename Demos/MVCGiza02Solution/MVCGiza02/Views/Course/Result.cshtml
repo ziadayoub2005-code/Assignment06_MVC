@@ -1,0 +1,44 @@
+@model StudentCourseResultViewModel
+
+@{
+    ViewData["Title"] = "Student Course Result";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm p-4 col-md-7 mx-auto">
+        <h3 class="card-title text-center mb-4">Student Course Result</h3>
+
+        <table class="table table-bordered">
+            <tr>
+                <th class="w-50">Student Name:</th>
+                <td>@Model.StudentName</td>
+            </tr>
+            <tr>
+                <th>Course Name:</th>
+                <td>@Model.CourseName</td>
+            </tr>
+            <tr>
+                <th>Minimum Passing Degree:</th>
+                <td>@Model.MinDegree</td>
+            </tr>
+            <tr>
+                <th>Student Degree:</th>
+                <!-- Colored directly from ViewModel with NO conditions in View -->
+                <td style="color: @Model.Color; font-size: 1.25rem; font-weight: bold;">
+                    @Model.Degree
+                </td>
+            </tr>
+            <tr>
+                <th>Status:</th>
+                <!-- Status text and color come directly from ViewModel -->
+                <td style="color: @Model.Color; font-weight: bold;">
+                    @Model.Status
+                </td>
+            </tr>
+        </table>
+
+        <div class="text-center mt-3">
+            <a asp-action="Index" class="btn btn-secondary">Back to Courses</a>
+        </div>
+    </div>
+</div>

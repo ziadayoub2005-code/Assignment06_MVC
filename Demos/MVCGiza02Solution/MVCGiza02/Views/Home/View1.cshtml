@@ -1,0 +1,43 @@
+﻿<h5 style="color:red">Hello World</h5>
+
+<!--  web Page + C# -->
+<!--  Razor Engine(View Engine)(Razor Syntax) -->
+<style>
+	h5 {
+		color: red
+	}
+</style>
+
+<script>
+	console.log("Hello")
+</script>
+
+<!-- Razor syntax -->
+<!-- block Code -->
+@{
+	// C#
+	// Vilations
+	int X = 6;
+	int Y = X + 10;
+}
+
+<!-- inline statements -->
+<h2>@X</h2>
+@Y
+
+<!-- Conditions -->
+@if (X>Y)
+{
+	<h2>X is greater</h2>
+}
+else
+{
+	<h2>X which is @X is less</h2>
+}
+
+
+<!-- Loop -->
+@for (int i = 0; i < 10; i++)
+{
+	<h2>@i</h2>
+}

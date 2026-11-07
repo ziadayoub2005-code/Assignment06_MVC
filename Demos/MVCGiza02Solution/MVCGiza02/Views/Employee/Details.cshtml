@@ -1,0 +1,28 @@
+﻿@model Employee
+
+<h1>Emp details</h1>
+
+<h2>@Model.Name</h2>
+<h2>@Model.Salary</h2>
+
+<!--  Razor Page  -->
+<!--  ViewData -->
+<!--  Get values .. -->
+
+<!-- 1-keys written right(Compilation errors)  -->
+<!-- 2-Opertaions on Value type (UnBoxing) -->
+<!-- 3-Type Casting -->
+
+
+
+<h2>@ViewBag.Status</h2>
+<h2>@(ViewBag.Rate + 10)</h2>
+
+@* <h2>@ViewData["skills"]</h2> *@
+
+<select>
+	@foreach (var item in ViewBag.Skills)
+	{
+		<option>@item</option>
+	}
+</select>

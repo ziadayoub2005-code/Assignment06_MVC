@@ -1,0 +1,28 @@
+﻿@model List<Employee>
+<h1 ">All Employees</h1>
+
+@{
+	ViewData["Title"] = "Employees";
+}
+
+<a asp-controller="Employee" asp-action="Add" class="btn btn-primary mt-3 mb-3"> New</a>
+
+<table  class="table table-hover table-bordered">
+	<tr>
+		<th>No</th>
+		<th>Name</th>
+		<th>Salary</th>
+		<th></th>
+		<th></th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.Id</td>
+			<td>@item.Name</td>
+			<td>@item.Salary</td>
+			<td><a href="/Employee/Edit/@item.Id">Edit</a></td>
+			<td><a href="/Employee/Delete/@item.Id">delete</a></td>
+		</tr>
+	}
+</table>

@@ -1,0 +1,67 @@
+﻿@model EmpWithDetailsViewModel
+
+<h1>Edit</h1>
+
+<form method="post" action="/Employee/SaveEdit/@Model.Id">
+	<div>
+		<!-- Html tag -->
+		@* <label>Name</label> *@
+		<!-- Html helper -->
+		@Html.LabelFor(E => E.Name)
+		<!-- 1-Pure html tag -->
+		@* <input type="text" value="@Model.Name" id="Name" name="Name" class="form-control" /> *@
+		<!-- 2-html helper(Loose) -->
+		@* @Html.TextBox("Name") *@
+		<!-- 3-html helper(strong) -->
+		@* @Html.TextBoxFor(E => E.Name) *@
+		<!-- 4-html helper(strong) -->
+		@Html.EditorFor(E => E.Name, new { htmlattributes = new { @class= "form-control" } } )
+		<!-- Tag helper (Done) -->
+		<label asp-for="Name"></label>
+		<input asp-for="Name" class="form-control" />
+
+	</div>
+	<div>
+		<label>Salary</label>
+		<input type="number" value="@Model.Salary" id="Salary" name="Salary" class="form-control" />
+	</div>
+	<div>
+		<label>Title</label>
+		<input type="text" value="@Model.Title" id="Title" name="Title" class="form-control" />
+	</div>
+	<div>
+		<label>Address</label>
+		<input type="text" value="@Model.Address" id="Address" name="Address" class="form-control" />
+	</div>
+	<div>
+		<label>Department</label>
+		@* <input type="number" value="@Model.DeptId" id="DeptId" name="DeptId" class="form-control" /> *@
+		<select id="DeptId" name="DeptId" class="form-control">
+			@foreach (var item in Model.DeptList)
+			{
+				@if (item.Id == Model.DeptId)
+				{
+					<option value="@item.Id" selected>@item.Name</option>
+				}
+				else
+				{
+					<option value="@item.Id">@item.Name</option>
+				}
+			}
+		</select>
+	</div>
+
+	<input type="submit" value="Save" class="btn btn-success mt-3" />
+
+</form>
+
+<!-- Self : relative Path -->
+
+<!-- 1-Html tags -->
+<a href="Employee/Index">BackToList</a>
+
+<!-- 2-Html helpers -->
+@Html.ActionLink("BackToList", "Index", "Employee")
+
+<!-- 3- Tag helper -->
+<a asp-action="Index" asp-controller="Employee">BackToList</a>

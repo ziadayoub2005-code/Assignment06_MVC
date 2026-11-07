@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<!-- dynamic section(Place holders) -->
+<!-- dynamic section(Place holders) : html Contenet !! -->
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <div style="height:150px;background-color:beige;font-size:40px">Header
+        <div style="background-color:aqua">@RenderSection("Header",false)</div>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <div style="height:150px;background-color:beige;font-size:40px">Footer
+        <div style="background-color:aqua">@RenderSection("Footer",false)</div>
+    </div>
+
+    <!-- Client side validations -->
+</body>
+</html>

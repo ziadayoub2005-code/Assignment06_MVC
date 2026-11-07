@@ -1,0 +1,17 @@
+﻿<!-- strong type View -->
+<!-- Model -> Razot detet type -->
+
+@model EmpWithExtraInfoViewModel
+
+<h1>Emp Details</h1>
+<h2>@Model.EmpName</h2>
+<h2>@Model.DeptName</h2>
+<h2>@Model.Rate</h2>
+<h2>@Model.Status</h2>
+
+<select>
+	@foreach (var item in Model.Skills)
+	{
+		<option>@item</option>
+	}
+</select>

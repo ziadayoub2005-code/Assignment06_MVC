@@ -1,0 +1,14 @@
+﻿@model Employee
+
+<h1>Delete</h1>
+
+<h2> Are u sure deelting this ? </h2>
+
+<h3>@Model.Name</h3>
+<h3>@Model.Salary</h3>
+
+<form method="Post" action="/Employee/ConfirmDelete/@Model.Id">
+	<input type="submit" value="Delete" class="btn btn-danger"/>
+</form>
+
+<a href="/Employee/Index">Back To List</a>
